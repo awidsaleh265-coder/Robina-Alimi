@@ -1828,3 +1828,70 @@ a {
     }
 
 }
+/* =========================================================
+   MORE PROJECTS BUTTON
+========================================================= */
+
+.more-projects {
+    display: none;
+    margin-top: 70px;
+}
+
+.more-projects.show {
+    display: grid;
+    animation: projectsOpen .8s ease forwards;
+}
+
+.projects-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 80px;
+}
+
+.projects-toggle {
+    border: 1px solid var(--navy);
+    background: transparent;
+    color: var(--navy);
+    padding: 17px 32px;
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: .35s ease;
+}
+
+.projects-toggle:hover {
+    background: var(--navy);
+    color: var(--white);
+    transform: translateY(-4px);
+}
+
+#seeLessBtn {
+    display: none;
+}
+
+@keyframes projectsOpen {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 650px) {
+
+    .projects-buttons {
+        margin-top: 60px;
+        flex-direction: column;
+    }
+
+    .projects-toggle {
+        width: 100%;
+    }
+}

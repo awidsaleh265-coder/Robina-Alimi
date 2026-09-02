@@ -25,6 +25,7 @@ window.addEventListener("load", () => {
 });
 
 
+
 /* =========================================================
    HEADER ON SCROLL
 ========================================================= */
@@ -275,3 +276,46 @@ document.querySelectorAll("img").forEach((image) => {
     });
 
 });
+/* =========================================================
+   SEE MORE / SEE LESS PROJECTS
+========================================================= */
+
+const moreProjects = document.getElementById("moreProjects");
+const seeMoreBtn = document.getElementById("seeMoreBtn");
+const seeLessBtn = document.getElementById("seeLessBtn");
+
+if (moreProjects && seeMoreBtn && seeLessBtn) {
+
+    seeMoreBtn.addEventListener("click", () => {
+
+        moreProjects.classList.add("show");
+
+        seeMoreBtn.style.display = "none";
+        seeLessBtn.style.display = "inline-flex";
+
+        // Activate reveal animations
+        const newProjects =
+            moreProjects.querySelectorAll(".reveal");
+
+        newProjects.forEach((project, index) => {
+            setTimeout(() => {
+                project.classList.add("active");
+            }, index * 80);
+        });
+
+    });
+
+    seeLessBtn.addEventListener("click", () => {
+
+        moreProjects.classList.remove("show");
+
+        seeLessBtn.style.display = "none";
+        seeMoreBtn.style.display = "inline-flex";
+
+        // Scroll back toward project section
+        document.getElementById("work").scrollIntoView({
+            behavior: "smooth"
+        });
+
+    });
+}
